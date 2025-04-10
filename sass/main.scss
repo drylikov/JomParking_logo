@@ -1,0 +1,245 @@
+// colors
+$bg-color: #fff;
+$logo-color: #5a5089;
+$second-title-color: #686f9c;
+$bg-color-gradient: radial-gradient(circle,#fff 45%, $logo-color);
+
+// fonts
+@import url("https://fonts.googleapis.com/css?family=Arimo:400,700");
+$arimo-font: 'Arimo', sans-serif;
+
+// sizes
+$p-height: 36.2vmin;
+$line-height: 36.2vmin/11;
+
+// mixins
+@mixin center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin pseudo($position: absolute, $content: "") {
+    content: $content;
+    position: $position;
+}
+
+@mixin breakpoint($point) {
+    @if $point==tablet {
+        @media (max-width: 1024px) and (min-width: 768px) {
+            @content ;
+        }
+    }
+    @else if $point==mobile {
+        @media (max-width: 480px) and (min-width: 320px) {
+            @content ;
+        }
+    }
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: $bg-color-gradient;
+  overflow: hidden;
+}
+
+.logo{
+  .p-shape{
+    @include center;
+    width: 8.5vmin;
+    height: $p-height;
+    top: -9vmin;
+    left: -3vmin;
+    background: $logo-color;
+    transform: skewX(-12deg);
+    border-bottom-right-radius: 1.5vmin;
+
+    &:before{
+      @include pseudo;
+      width: 26vmin;
+      height: 23vmin;
+      background: $logo-color;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 40%;
+    }
+
+    &:after{
+      @include pseudo;
+      width: 7.9vmin;
+      height: 7.9vmin;
+      background: $bg-color;
+      left: 8.5vmin;
+      top: 7.6vmin;
+      border-top-left-radius: 1vmin;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+
+    .line{
+      position: absolute;
+      height: $line-height;
+    }
+
+    .line-1{
+      width: 12vmin;
+      left: -9.3vmin;
+      background: $logo-color;
+      border-top-left-radius: $line-height;
+      border-bottom-left-radius: $line-height;
+    }
+
+    .line-2{
+      left: -4vmin;
+      width: 7vmin;
+      background: $logo-color;
+      top: $line-height;
+
+      &:after{
+        @include pseudo;
+        width: 3vmin;
+        height: $line-height;
+        background: $bg-color;
+        left: -1vmin;
+        border-top-right-radius: $line-height;
+        border-bottom-right-radius: $line-height;
+      }
+    }
+
+    .line-3{
+      width: 15vmin;
+      left: -12.6vmin;
+      top: $line-height*2;
+      background: $logo-color;
+      border-top-left-radius: $line-height;
+      border-bottom-left-radius: $line-height;
+    }
+
+    .line-4{
+      left: -4vmin;
+      width: 7vmin;
+      background: $logo-color;
+      top: $line-height*3;
+
+      &:after{
+        @include pseudo;
+        width: 3vmin;
+        height: $line-height;
+        background: $bg-color;
+        left: -0.8vmin;
+        border-top-right-radius: $line-height;
+        border-bottom-right-radius: $line-height;
+      }
+    }
+
+    .line-5{
+      width: 12vmin;
+      left: -8.4vmin;
+      top: $line-height*4;
+      background: $logo-color;
+      border-top-left-radius: $line-height;
+      border-bottom-left-radius: $line-height;
+
+      &:after{
+        @include pseudo;
+        width: 4.5vmin;
+        height: $line-height;
+        background: $logo-color;
+        left: -6.5vmin;
+        border-radius: $line-height;
+        transform: skewX(12deg);
+      }
+    }
+
+    .line-6{
+      width: 3vmin;
+      background: $bg-color;
+      left: -0.9vmin;
+      top: $line-height*5;
+      border-top-right-radius: $line-height;
+      border-bottom-right-radius: $line-height - 1vmin;
+    }
+
+    .line-7{
+      width: 10vmin;
+      left: -9.8vmin;
+      top: $line-height*6;
+      background: $logo-color;
+      border-top-left-radius: $line-height;
+      border-bottom-left-radius: $line-height;
+    }
+
+    .line-8{
+      left: -1.6vmin;
+      width: 3vmin;
+      background: $logo-color;
+      top: $line-height*7;
+
+      &:after{
+        @include pseudo;
+        width: 3vmin;
+        height: $line-height;
+        background: $bg-color;
+        left: -1.8vmin;
+        border-top-right-radius: $line-height;
+        border-bottom-right-radius: $line-height - 1vmin;
+      }
+    }
+
+    .line-9{
+      width: 12.5vmin;
+      top: $line-height*8;
+      left: -9.7vmin;
+      background: $logo-color;
+      border-top-left-radius: $line-height;
+      border-bottom-left-radius: $line-height;
+    }
+
+    .line-10{
+      width: 3vmin;
+      background: $bg-color;
+      left: -1vmin;
+      top: $line-height*9;
+      border-top-right-radius: $line-height;
+      border-bottom-right-radius: $line-height - 1vmin;
+    }
+
+    .line-11{
+      width: 4vmin;
+      top: $line-height*10;
+      left: -1.4vmin;
+      background: $logo-color;
+      border-top-left-radius: $line-height;
+      border-bottom-left-radius: $line-height;
+    }
+  }
+}
+
+.title{
+  @include center;
+  top: 65vh;
+  text-align: center;
+  font-family: $arimo-font;
+  font-weight: bold;
+  font-size: 11.2vmin;
+  color: $logo-color;
+
+  @include breakpoint(mobile){
+    top: 63vh;
+  }
+
+  @include breakpoint(tablet){
+    top: 62vh;
+  }
+
+  span{
+    font-weight: 400;
+    color: $second-title-color;
+  }
+}
